@@ -1,0 +1,17 @@
+# Skill content (users manage their own)
+skills/
+
+# Backups created by link.ps1
+*_backup/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# PowerShell
+*.ps1.bak
