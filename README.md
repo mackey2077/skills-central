@@ -1,8 +1,23 @@
 # skills-central
 
-> One skills folder to rule them all.
+> One skills folder to rule them all — zero daemon, zero overhead, zero config.
 
-A lightweight setup that unifies AI skills across multiple tools (Trae, Kiro, Codex, Doubao, CC Switch, WorkBuddy, etc.) using NTFS Directory Junctions — no sync daemon, no background process, zero overhead.
+Unify AI skills across multiple tools (Trae, Kiro, Codex, Doubao, CC Switch, WorkBuddy, etc.) using **NTFS Directory Junctions**. No sync daemon, no background process, no runtime dependency — just the file system doing what it's designed to do.
+
+## Why not a skill manager?
+
+Existing solutions add a software layer (daemon / service / tray app) to keep folders in sync. `skills-central` takes a different approach:
+
+| | skills-central | Typical skill manager |
+|---|---|---|
+| **Runtime** | **Zero** — no process needed | Daemon / background service |
+| **Sync latency** | **Instant** — same filesystem write | Polling or event listener |
+| **Failure mode** | **None** — OS-native mechanism | Daemon crash = no sync |
+| **Boot persistence** | **Permanent** — survives reboots | Must register as startup service |
+| **Rollback** | Delete Junction + rename backup | Stop service + cleanup |
+| **Setup** | One command, done forever | Install + configure + autostart |
+
+The key insight: instead of *adding software to sync folders*, let the *filesystem itself unify them*. Junctions are an NTFS kernel-level feature — they don't depend on any process, don't add latency, and can't crash.
 
 ## How it works
 
@@ -29,7 +44,7 @@ Each AI tool stores its skills in a dedicated folder (e.g. `~/.trae-cn/skills`, 
 
 ```powershell
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/skills-central.git
+git clone https://github.com/mackey2077/skills-central.git
 cd skills-central
 
 # 2. Run setup (merges existing skills + creates Junctions)
