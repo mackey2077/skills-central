@@ -1,5 +1,7 @@
 # skills-central
 
+[English](README.md)
+
 > 一个技能文件夹，统一所有工具——零守护进程、零开销、零配置。
 
 使用 NTFS **目录联接（Junction）** 跨工具（Trae、Kiro、Codex、Doubao、CC Switch、WorkBuddy 等）统一 AI 技能。不需要同步守护进程，不需要后台服务，不需要运行时依赖——让文件系统做它本就该做的事。

@@ -1,5 +1,7 @@
 # skills-central
 
+[中文文档](README.zh-CN.md)
+
 > One skills folder to rule them all — zero daemon, zero overhead, zero config.
 
 Unify AI skills across multiple tools (Trae, Kiro, Codex, Doubao, CC Switch, WorkBuddy, etc.) using **NTFS Directory Junctions**. No sync daemon, no background process, no runtime dependency — just the file system doing what it's designed to do.
